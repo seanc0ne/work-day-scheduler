@@ -30,3 +30,21 @@ for (var i = 0, i < times.length; i++) {
     col = $('<div></div>').addClass('col');
     col.html('Edit');
 }
+
+var currentDate = new Date();
+var rightNow = moment(currentDate, {'dddd, MMMM Do'});
+rightNow = "Saturday, June 20th"
+
+$(#currentDay).html(rightNow)
+
+var currentHour = moment(currentDate).format()
+var hour;
+
+for (var i = 0; i < times.length; i++) {
+    //Get an hour
+    hour = moment(times[i]);
+
+    if (moment().isBefore()) {
+
+    }
+}
