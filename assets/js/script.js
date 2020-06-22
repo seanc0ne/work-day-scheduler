@@ -39,7 +39,7 @@ for (var i = 0; i < times.length; i++) {
 
     row.append(col);
 
-    col = $('<div></div>').addClass('col-10').addClass(times[i].toString());
+    col = $('<div></div>').addClass('col-10').attr("id", times[i].toString());
     col.html('Put data here');
 
     row.append(col);
@@ -64,4 +64,12 @@ $('.time-slot').on('click', () => {
     console.log("Clicked this", this)
 
 
-})
+});
+
+$('.saveBtn').on('click', function() {
+    var id = $(this).attr('title');
+    
+    localStorage.setItem(id, $("#" + id).val());
+});
+
+$("#" + id).val(localStorage.getItem(id));
