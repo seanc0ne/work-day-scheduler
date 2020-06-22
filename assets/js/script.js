@@ -1,24 +1,41 @@
 var times = [
-    '9:00 AM',
-    '10:00 AM',
-    '11:00 AM',
-    '12:00 PM',
-    '1:00 PM',
-    '2:00 PM',
-    '3:00 PM',
-    '4:00 PM',
-    '5:00 PM'
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
 ];
 
 var container = $('.container');
 var row, col;
 
-for (var i = 0, i < times.length; i++) {
+for (var i = 0; i < times.length; i++) {
+    let rowTime = moment({hour: times[i]});
+    let currentHourTime = (moment().startOf('hour'));
+    console.log(rowTime.format('h:mm a'));
+
+    console.log(rowTime.isBefore(moment()));
+
     row = $('<div></div>').addClass('row');
     row.addClass('time-slot');
 
+    if (rowTime.isBefore(currentHourTime)){
+        row.addClass('past');
+    } else if(rowTime.isAfter(currentHourTime)) {
+        row.addClass('future');
+    } else {
+        row.addClass('present');
+    }
+
     col = $('<div></div>').addClass('col');
-    col.html(times[i]);
+    col.addClass('hour');
+    col.html(rowTime.format("h:mm a"));
 
     row.append(col);
 
@@ -28,14 +45,18 @@ for (var i = 0, i < times.length; i++) {
     row.append(col);
 
     col = $('<div></div>').addClass('col');
+    col.addClass('saveBtn');
     col.html('Edit');
+
+    row.append(col);
+
+    container.append(row);
 }
 
 var currentDate = new Date();
-var rightNow = moment(currentDate, {'dddd, MMMM Do'});
-rightNow = "Saturday, June 20th"
+var rightNow = moment().format('dddd, MMMM Do');
 
-$(#currentDay).html(rightNow)
+$('#currentDay').html(rightNow);
 
 var currentHour = moment(currentDate).format()
 var hour;
