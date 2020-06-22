@@ -39,13 +39,14 @@ for (var i = 0; i < times.length; i++) {
 
     row.append(col);
 
-    col = $('<div></div>').addClass('col-10');
+    col = $('<div></div>').addClass('col-10').addClass(times[i].toString());
     col.html('Put data here');
 
     row.append(col);
 
     col = $('<div></div>').addClass('col');
-    col.addClass('saveBtn');
+    col.addClass('saveBtn').click(function() {});
+    col.attr("title", times[i].toString());
     col.html('Edit');
 
     row.append(col);
@@ -58,14 +59,9 @@ var rightNow = moment().format('dddd, MMMM Do');
 
 $('#currentDay').html(rightNow);
 
-var currentHour = moment(currentDate).format()
-var hour;
+$('.time-slot').on('click', () => {
 
-for (var i = 0; i < times.length; i++) {
-    //Get an hour
-    hour = moment(times[i]);
+    console.log("Clicked this", this)
 
-    if (moment().isBefore()) {
 
-    }
-}
+})
