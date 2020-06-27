@@ -64,6 +64,8 @@ textarea{
   background-color: #06AED5;
   color: white;
   cursor: pointer;
+  line-height: 80px;
+  text-align: center;
 }
 
 .saveBtn i:hover {

@@ -42,7 +42,7 @@ for (var i = 0; i < times.length; i++) {
     row.append(col);
 
     // Second column
-    col = $('<textarea></textarea>').addClass('col-10').attr("id", times[i].toString());
+    col = $('<textarea></textarea>').addClass('col-9').attr("id", times[i].toString());
     col.html('Put data here');
 
     row.append(col);
@@ -50,9 +50,14 @@ for (var i = 0; i < times.length; i++) {
     // Third column creating the <div class="saveBtn"></div>
     col = $('<div></div>').addClass('col');
     col.addClass('saveBtn');
+    // col.addClass('fa');
+    // col.addClass('fa-save');
+
+    let italicsIcon = $('<i></i>').addClass('fa').addClass('fa-save');
+    col.append(italicsIcon);
 
     col.attr("title", times[i].toString());
-    col.html('Save');
+    // col.html('Save');
 
     row.append(col);
 
